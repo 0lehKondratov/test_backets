@@ -386,3 +386,12 @@ output "backup_secret_key" {
   value       = wasabi_access_key.backup_key.secret
   sensitive   = true  
 }
+
+output "connection_info" {
+  value = {
+    access_key  = var.wasabi_access_key
+    secret_key  = var.wasabi_secret_key
+    bucket_name = wasabi_bucket.sales.bucket
+    endpoint    = "https://s3.wasabisys.com"
+  }
+}

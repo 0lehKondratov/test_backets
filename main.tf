@@ -338,6 +338,8 @@ resource "wasabi_user_policy_attachment" "backup_operations_ro" {
   policy_arn = wasabi_policy.operations_ro.arn
 }
 
+#====================== OUTPUTS =========================
+
 output "bucket_names" {
   value = [
     wasabi_bucket.sales.bucket,
@@ -346,6 +348,15 @@ output "bucket_names" {
     wasabi_bucket.finance.bucket,
     wasabi_bucket.operations.bucket,
   ]
+}
+
+output "connection_info" {
+  value = {
+    access_key  = var.wasabi_access_key
+    secret_key  = var.wasabi_secret_key
+    bucket_name = wasabi_bucket.sales.bucket
+    endpoint    = "https://s3.wasabisys.com"
+  }
 }
 
 output "alice_access_key_id" {
@@ -387,11 +398,3 @@ output "backup_secret_key" {
   sensitive   = true  
 }
 
-output "connection_info" {
-  value = {
-    access_key  = var.wasabi_access_key
-    secret_key  = var.wasabi_secret_key
-    bucket_name = wasabi_bucket.sales.bucket
-    endpoint    = "https://s3.wasabisys.com"
-  }
-}

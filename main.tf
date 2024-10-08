@@ -50,7 +50,7 @@ resource "wasabi_policy" "sales_ro" {
     {
       "Effect": "Allow",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::sales-data-bucket/*"
+      "Resource": "arn:aws:s3:::sales-data-bucket-${random_id.suffix.hex}/"
     }
   ]
 }
@@ -66,7 +66,7 @@ resource "wasabi_policy" "sales_rw" {
     {
       "Effect": "Allow",
       "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
-      "Resource": "arn:aws:s3:::sales-data-bucket/*"
+      "Resource": "arn:aws:s3:::sales-data-bucket-${random_id.suffix.hex}/*"
     }
   ]
 }
@@ -85,7 +85,7 @@ resource "wasabi_policy" "marketing_ro" {
     {
       "Effect": "Allow",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::marketing-data-bucket/*"
+      "Resource": "arn:aws:s3:::marketing-data-bucket-${random_id.suffix.hex}/*"
     }
   ]
 }
@@ -101,7 +101,7 @@ resource "wasabi_policy" "marketing_rw" {
     {
       "Effect": "Allow",
       "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
-      "Resource": "arn:aws:s3:::marketing-data-bucket/*"
+      "Resource": "arn:aws:s3:::marketing-data-bucket-${random_id.suffix.hex}/*"
     }
   ]
 }
@@ -119,7 +119,7 @@ resource "wasabi_policy" "engineering_ro" {
     {
       "Effect": "Allow",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::engineering-data-bucket/*"
+      "Resource": "arn:aws:s3:::engineering-data-bucket-${random_id.suffix.hex}/*"
     }
   ]
 }
@@ -135,7 +135,7 @@ resource "wasabi_policy" "engineering_rw" {
     {
       "Effect": "Allow",
       "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
-      "Resource": "arn:aws:s3:::engineering-data-bucket/*"
+      "Resource": "arn:aws:s3:::engineering-data-bucket-${random_id.suffix.hex}/*"
     }
   ]
 }
@@ -154,7 +154,7 @@ resource "wasabi_policy" "finance_ro" {
     {
       "Effect": "Allow",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::finance-data-bucket/*"
+      "Resource": "arn:aws:s3:::finance-data-bucket-${random_id.suffix.hex}/*"
     }
   ]
 }
@@ -170,7 +170,7 @@ resource "wasabi_policy" "finance_rw" {
     {
       "Effect": "Allow",
       "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
-      "Resource": "arn:aws:s3:::finance-data-bucket/*"
+      "Resource": "arn:aws:s3:::finance-data-bucket-${random_id.suffix.hex}/*"
     }
   ]
 }
@@ -188,7 +188,7 @@ resource "wasabi_policy" "operations_ro" {
     {
       "Effect": "Allow",
       "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::operations-data-bucket/*"
+      "Resource": "arn:aws:s3:::operations-data-bucket-${random_id.suffix.hex}/*"
     }
   ]
 }
@@ -204,7 +204,7 @@ resource "wasabi_policy" "operations_rw" {
     {
       "Effect": "Allow",
       "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
-      "Resource": "arn:aws:s3:::operations-data-bucket/*"
+      "Resource": "arn:aws:s3:::operations-data-bucket-${random_id.suffix.hex}/*"
     }
   ]
 }

@@ -22,11 +22,9 @@
    ```bash
    git clone https://github.com/0lehKondratov/test_backets.git
    cd test_backets
-   
-```
 
-Використання
-Ініціалізуйте проект:
+## Використання
+### Ініціалізуйте проект:
 
 ```bash
 terraform init
@@ -39,16 +37,15 @@ terraform plan
 ```bash
 
 terraform apply
-``` Перегляньте вихідні дані:
+
+``` 
+### Перегляньте вихідні дані:
 
 Після завершення команди terraform apply ви побачите всі дані для підключення до бакетів, включаючи:
-
 Access Key
 Secret Key
 Ім'я бакета
 URL-адресу для підключення
-
-
 
 ```
 terraform output alice_access_key_id

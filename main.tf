@@ -226,6 +226,10 @@ resource "wasabi_user" "alice" {
   name = "alice"
 }
 
+resource "wasabi_access_key" "alice_key" {
+  user = wasabi_user.alice.name
+}
+
 resource "wasabi_user_policy_attachment" "alice_sales_rw" {
   user       = wasabi_user.alice.name
   policy_arn = wasabi_policy.sales_rw.arn
@@ -246,6 +250,10 @@ resource "wasabi_user_policy_attachment" "alice_engineering_ro" {
 # Створення користувача Bob та прив'язка політик
 resource "wasabi_user" "bob" {
   name = "bob"
+}
+
+resource "wasabi_access_key" "bob_key" {
+  user = wasabi_user.bob.name
 }
 
 resource "wasabi_user_policy_attachment" "bob_sales_rw" {
@@ -280,6 +288,10 @@ resource "wasabi_user" "charlie" {
   name = "charlie"
 }
 
+resource "wasabi_access_key" "charlie_key" {
+  user = wasabi_user.charlie.name
+}
+
 resource "wasabi_user_policy_attachment" "charlie_operations_rw" {
   user       = wasabi_user.charlie.name
   policy_arn = wasabi_policy.operations_rw.arn
@@ -295,6 +307,10 @@ resource "wasabi_user_policy_attachment" "charlie_finance_ro" {
 # Створення користувача Backup та прив'язка політик
 resource "wasabi_user" "backup" {
   name = "backup"
+}
+
+resource "wasabi_access_key" "backup_key" {
+  user = wasabi_user.backup.name
 }
 
 resource "wasabi_user_policy_attachment" "backup_sales_ro" {
@@ -322,3 +338,51 @@ resource "wasabi_user_policy_attachment" "backup_operations_ro" {
   policy_arn = wasabi_policy.operations_ro.arn
 }
 
+output "bucket_names" {
+  value = [
+    wasabi_bucket.sales.bucket,
+    wasabi_bucket.marketing.bucket,
+    wasabi_bucket.engineering.bucket,
+    wasabi_bucket.finance.bucket,
+    wasabi_bucket.operations.bucket,
+  ]
+}
+
+output "alice_access_key_id" {
+  value       = wasabi_access_key.alice_key.id
+  sensitive   = false  
+}
+
+output "alice_secret_key" {
+  value       = wasabi_access_key.alice_key.secret
+  sensitive   = true  
+}
+output "bob_access_key_id" {
+  value       = wasabi_access_key.bob_key.id
+  sensitive   = false  # Снятие чувствительности
+}
+
+output "bob_secret_key" {
+  value       = wasabi_access_key.bob_key.secret
+  sensitive   = true  
+}
+
+output "charlie_access_key_id" {
+  value       = wasabi_access_key.charlie_key.id
+  sensitive   = false  # Снятие чувствительности
+}
+
+output "charlie_secret_key" {
+  value       = wasabi_access_key.charlie_key.secret
+  sensitive   = true  
+}
+
+output "backup_access_key_id" {
+  value       = wasabi_access_key.backup_key.id
+  sensitive   = false  # Снятие чувствительности
+}
+
+output "backup_secret_key" {
+  value       = wasabi_access_key.backup_key.secret
+  sensitive   = true  
+}

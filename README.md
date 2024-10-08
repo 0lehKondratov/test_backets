@@ -1,5 +1,3 @@
-Встановіть Terraform, якщо він ще не встановлений. Інструкції можна знайти на офіційному сайті Terraform.
-
 # Terraform Wasabi Configuration
 
 Цей репозиторій містить конфігурацію Terraform для управління ресурсами в Wasabi, включаючи створення бакетів, політик доступу та користувачів.
@@ -22,42 +20,67 @@
 1. Клонуйте цей репозиторій:
 
    ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/0lehKondratov/test_backets.git
+   cd test_backets
+   
 ```
 
-Створіть файл terraform.tfvars з вашими даними доступу до Wasabi:
-
-```hcl
-wasabi_access_key = "ВАШ_WASABI_ACCESS_KEY"
-wasabi_secret_key = "ВАШ_WASABI_SECRET_KEY"
-wasabi_region     = "us-east-1"
-```
 Використання
 Ініціалізуйте проект:
 
 ```bash
 terraform init
-```
-Перегляньте план змін:
+```Перегляньте план змін:
 
 ```bash
 terraform plan
-```
-Застосуйте конфігурацію:
+```Застосуйте конфігурацію:
 
 ```bash
+
 terraform apply
-```
-Перегляньте вихідні дані:
+``` Перегляньте вихідні дані:
 
 Після завершення команди terraform apply ви побачите всі дані для підключення до бакетів, включаючи:
-```
+
 Access Key
 Secret Key
 Ім'я бакета
 URL-адресу для підключення
-```
-Приклади
-Приклади конфігурацій можна знайти у файлі main.tf. Ви можете змінювати назви бакетів та політики доступу відповідно до ваших потреб.
 
+
+
+```
+terraform output alice_access_key_id
+8I58BNZC6LGAMR0HVZ1J
+
+terraform output alice_secret_key
+D9WIEZnbenbeGiOPeJvzK3Ivv98eprXjPjl3Jha2
+
+terraform output bob_access_key_id
+5A29BQFZ4J3FJ5WQ6Z5H
+
+terraform output bob_secret_key
+d3FhZ3Jnd28bD+0W4J0hx33h3l2dXk1tK
+
+terraform output charlie_access_key_id
+7N63BQFZ4J3FJ5WQ6Z5D
+
+terraform output charlie_secret_key
+j7GrUhlK6D9wA2O2l98dWZx3f9A1xYH1
+
+terraform output backup_access_key_id
+9H63BQFZ4J3FJ5WQ6Z5B
+
+terraform output backup_secret_key
+l3FhZ3Jnd28bD+0W4J0hx33h3l2dXk1tK
+
+terraform output bucket_names
+
+sales-data-bucket-abc123
+marketing-data-bucket-def456
+engineering-data-bucket-ghi789
+finance-data-bucket-jkl012
+operations-data-bucket-mno345
+
+```

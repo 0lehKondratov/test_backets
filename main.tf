@@ -40,7 +40,6 @@ resource "wasabi_bucket" "operations" {
 
 # ======================= SALES =========================
 
-
 resource "wasabi_policy" "sales_ro" {
   name = "sales-ro-policy"
   policy = <<POLICY
@@ -49,8 +48,14 @@ resource "wasabi_policy" "sales_ro" {
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::sales-data-bucket-${random_id.suffix.hex}/"
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::sales-data-bucket-${random_id.suffix.hex}",
+        "arn:aws:s3:::sales-data-bucket-${random_id.suffix.hex}/*"
+      ]
     }
   ]
 }
@@ -65,8 +70,16 @@ resource "wasabi_policy" "sales_rw" {
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
-      "Resource": "arn:aws:s3:::sales-data-bucket-${random_id.suffix.hex}/*"
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:DeleteObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::sales-data-bucket-${random_id.suffix.hex}",
+        "arn:aws:s3:::sales-data-bucket-${random_id.suffix.hex}/*"
+      ]
     }
   ]
 }
@@ -74,7 +87,6 @@ POLICY
 }
 
 # ======================= MARKETING =========================
-
 
 resource "wasabi_policy" "marketing_ro" {
   name = "marketing-ro-policy"
@@ -84,8 +96,14 @@ resource "wasabi_policy" "marketing_ro" {
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::marketing-data-bucket-${random_id.suffix.hex}/*"
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::marketing-data-bucket-${random_id.suffix.hex}",
+        "arn:aws:s3:::marketing-data-bucket-${random_id.suffix.hex}/*"
+      ]
     }
   ]
 }
@@ -100,15 +118,23 @@ resource "wasabi_policy" "marketing_rw" {
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
-      "Resource": "arn:aws:s3:::marketing-data-bucket-${random_id.suffix.hex}/*"
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:DeleteObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::marketing-data-bucket-${random_id.suffix.hex}",
+        "arn:aws:s3:::marketing-data-bucket-${random_id.suffix.hex}/*"
+      ]
     }
   ]
 }
 POLICY
 }
 
-# ======================= ENGINIRING =========================
+# ======================= ENGINEERING =========================
 
 resource "wasabi_policy" "engineering_ro" {
   name = "engineering-ro-policy"
@@ -118,8 +144,14 @@ resource "wasabi_policy" "engineering_ro" {
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::engineering-data-bucket-${random_id.suffix.hex}/*"
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::engineering-data-bucket-${random_id.suffix.hex}",
+        "arn:aws:s3:::engineering-data-bucket-${random_id.suffix.hex}/*"
+      ]
     }
   ]
 }
@@ -134,8 +166,16 @@ resource "wasabi_policy" "engineering_rw" {
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
-      "Resource": "arn:aws:s3:::engineering-data-bucket-${random_id.suffix.hex}/*"
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:DeleteObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::engineering-data-bucket-${random_id.suffix.hex}",
+        "arn:aws:s3:::engineering-data-bucket-${random_id.suffix.hex}/*"
+      ]
     }
   ]
 }
@@ -143,7 +183,6 @@ POLICY
 }
 
 # ======================= FINANCE =========================
-
 
 resource "wasabi_policy" "finance_ro" {
   name = "finance-ro-policy"
@@ -153,8 +192,14 @@ resource "wasabi_policy" "finance_ro" {
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::finance-data-bucket-${random_id.suffix.hex}/*"
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::finance-data-bucket-${random_id.suffix.hex}",
+        "arn:aws:s3:::finance-data-bucket-${random_id.suffix.hex}/*"
+      ]
     }
   ]
 }
@@ -169,8 +214,16 @@ resource "wasabi_policy" "finance_rw" {
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
-      "Resource": "arn:aws:s3:::finance-data-bucket-${random_id.suffix.hex}/*"
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:DeleteObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::finance-data-bucket-${random_id.suffix.hex}",
+        "arn:aws:s3:::finance-data-bucket-${random_id.suffix.hex}/*"
+      ]
     }
   ]
 }
@@ -187,8 +240,14 @@ resource "wasabi_policy" "operations_ro" {
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::operations-data-bucket-${random_id.suffix.hex}/*"
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::operations-data-bucket-${random_id.suffix.hex}",
+        "arn:aws:s3:::operations-data-bucket-${random_id.suffix.hex}/*"
+      ]
     }
   ]
 }
@@ -203,8 +262,16 @@ resource "wasabi_policy" "operations_rw" {
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": ["s3:GetObject", "s3:PutObject", "s3:DeleteObject"],
-      "Resource": "arn:aws:s3:::operations-data-bucket-${random_id.suffix.hex}/*"
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:DeleteObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::operations-data-bucket-${random_id.suffix.hex}",
+        "arn:aws:s3:::operations-data-bucket-${random_id.suffix.hex}/*"
+      ]
     }
   ]
 }

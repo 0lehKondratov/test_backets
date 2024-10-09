@@ -2,28 +2,28 @@
     "region": "us-east-1",  
     "endpoint": "https://s3.wasabisys.com", 
     "buckets": {
-        "1": "sales-data-bucket-bfaa0e86",
-        "2": "marketing-data-bucket-bfaa0e86",
-        "3": "engineering-data-bucket-bfaa0e86",
-        "4": "finance-data-bucket-bfaa0e86",
-        "5": "operations-data-bucket-bfaa0e86"
+        "1": "sales-data-bucket-6a6ac1ce",
+        "2": "marketing-data-bucket-6a6ac1ce",
+        "3": "engineering-data-bucket-6a6ac1ce",
+        "4": "finance-data-bucket-6a6ac1ce",
+        "5": "operations-data-bucket-6a6ac1ce"
     },
     "users": {
         "Alice": {
-            "access_key": "1BGLDIVFPMPCCRCRN20K",
-            "secret_key": "az5lRro7SdJE1EkEPKAgzRuQ71fycPIIbOej3h8h"
+            "access_key": "NRG6V9GK8143WE8Z81YE",
+            "secret_key": "LqvXfOzVz71CZrtnmpsSKQNh3o62C1RQHL7TCB8p"
         },
         "Bob": {
-            "access_key": "OZ9A2CNRCAVR8DAATUV9",   
-            "secret_key": "6hfFVI2spPnzArBNJBCpgwvAuDIDSe2vCXMKR7ZK"
+            "access_key": "NEAX4Q9HAGRGY35SDV3L",   
+            "secret_key": "ANR7tUTuzdkYcN4LVOXCsSSE9iizMuDsaYaqCeoa"
         },
         "Charlie": {
-            "access_key": "RUOIS0ONKQYPD7FE445S",
-            "secret_key": "BJuWO6OMV3pteC7BaPJy27uUt448hdezbmX9UMrZ"
+            "access_key": "HV9NGB6ZQ7K5B6094G0R",
+            "secret_key": "wj7OHVcSdXUSZrDf5TSBeCn4LVByRRsoaMSr9dGq"
         },
         "Backup": {
-            "access_key": "0YZRTU5LDEM89OS897MU",
-            "secret_key": "24l2eej1h2KIzuEK7rOHqe6t0dJciYra5OCDyMCS"
+            "access_key": "DFEIWJHGITN3CNENCHYB",
+            "secret_key": "NHmsq9y3typd9MsLNDPdzn1gdQ6rvHEokrqw84Ye"
         }
     }
 }

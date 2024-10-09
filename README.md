@@ -1,8 +1,8 @@
-# Terraform Wasabi Configuration
+# Terraform Wasabi bucket configuration
 
 Цей репозиторій містить конфігурацію Terraform для управління ресурсами в Wasabi, включаючи створення бакетів, політик доступу та користувачів.
 
-## Опис
+# Опис
 
 Ця конфігурація дозволяє:
 - Створювати бакети в Wasabi.

@@ -1,0 +1,29 @@
+{
+    "region": "us-east-1",  
+    "endpoint": "https://s3.wasabisys.com", 
+    "buckets": {
+        "1": "sales-data-bucket-ee861d35",
+        "2": "marketing-data-bucket-ee861d35",
+        "3": "engineering-data-bucket-ee861d35",
+        "4": "finance-data-bucket-ee861d35",
+        "5": "operations-data-bucket-ee861d35"
+    },
+    "users": {
+        "Alice": {
+            "access_key": "QIAMDWGG2CNI168K63TO",
+            "secret_key": "YFpZUCFkT5QAhQO5pE4V30MyFhwC4aFWuLBcgu0L"
+        },
+        "Bob": {
+            "access_key": "OW96WH9WO19658WNYCG8",
+            "secret_key": "pdIEQszugZb1RR5SGsoMh8UeedgkQLUyL7PBIefj"
+        },
+        "Charlie": {
+            "access_key": "NN9CUH2C7MCUMMQYT4TX",
+            "secret_key": "Q40UQowpMMu0TiuOyeaF8FAesmCFucbRCke7p9MT"
+        },
+        "Backup": {
+            "access_key": "2Z0D59Z9Z7KYZ721DI9T",
+            "secret_key": "nUZEOI1MSva4A8igT4BQMo9cX7igtdKMGFTKAWAu"
+        }
+    }
+}

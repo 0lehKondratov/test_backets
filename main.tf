@@ -370,7 +370,7 @@ output "alice_secret_key" {
 }
 output "bob_access_key_id" {
   value       = wasabi_access_key.bob_key.id
-  sensitive   = false  # Снятие чувствительности
+  sensitive   = false  
 }
 
 output "bob_secret_key" {
@@ -380,7 +380,7 @@ output "bob_secret_key" {
 
 output "charlie_access_key_id" {
   value       = wasabi_access_key.charlie_key.id
-  sensitive   = false  # Снятие чувствительности
+  sensitive   = false  
 }
 
 output "charlie_secret_key" {
@@ -390,7 +390,7 @@ output "charlie_secret_key" {
 
 output "backup_access_key_id" {
   value       = wasabi_access_key.backup_key.id
-  sensitive   = false  # Снятие чувствительности
+  sensitive   = false  
 }
 
 output "backup_secret_key" {

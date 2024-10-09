@@ -215,4 +215,44 @@ python test/test_access.py
 
 Після запуску коду важливо перевірити, чи правильно ви надали доступ користувачам. Вихідні дані покажуть, які права має кожен користувач на конкретні бакети. Якщо користувач не має доступу до певного бакету, код виведе відповідне повідомлення про помилку.
 
-Ви можете використовувати цю інформацію для перевірки конфігурацій доступу. Це допоможе вам упевнитися, що кожен користувач має необхідні права для виконання своїх завдань, не наражаючи при цьому систему на небезпеку через надмірні права. Регулярна перевірка доступу може бути частиною вашої стратегії управління безпекою, що дозволяє зменшити ризики і забезпечити дотримання політики безпеки.
+Ви можете використовувати цю інформацію для перевірки конфігурацій доступу. Це допоможе вам упевнитися, що кожен користувач має необхідні права для виконання своїх завдань, не наражаючи при цьому систему на небезпеку через надмірні права. Регулярна перевірка доступу може бути частиною вашої стратегії управління безпекою, що дозволяє зменшити ризики і забезпечити дотримання політики безпеки
+
+№ 
+
+```bash
+aws s3 ls --endpoint-url https://s3.wasabisys.com
+
+2024-10-09 23:05:29 engineering-data-bucket-c3ae0b6b
+2024-10-09 23:05:30 finance-data-bucket-c3ae0b6b
+2024-10-09 23:05:28 marketing-data-bucket-c3ae0b6b
+2024-10-09 23:05:30 operations-data-bucket-c3ae0b6b
+2024-10-09 23:05:28 sales-data-bucket-c3ae0b6b
+```
+
+```
+
+echo "This is a test file." > testfile.txt
+
+aws s3 cp testfile.txt s3://sales-data-bucket-c3ae0b6b
+
+aws s3 ls s3://sales-data-bucket-c3ae0b6b --endpoint-url https://s3.wasabisys.com
+
+2024-10-09 23:18:51         21 testfile.txt
+
+aws s3 rm s3://sales-data-bucket-c3ae0b6b/testfile.txt --endpoint-url https://s3.wasabisys.com
+
+delete: s3://sales-data-bucket-c3ae0b6b/testfile.txt
+
+
+
+```
+~/.aws/config.
+
+```
+[profile wasabi]
+aws_access_key_id = YOUR_WASABI_ACCESS_KEY
+aws_secret_access_key = YOUR_WASABI_SECRET_KEY
+region = us-east-1
+output = json
+
+```
